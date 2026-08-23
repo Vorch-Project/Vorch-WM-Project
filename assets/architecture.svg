@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="760" viewBox="0 0 1800 760">
+  <defs>
+    <style>
+      text { font-family: 'DejaVu Sans', Arial, sans-serif; fill: #172033; }
+      .h1 { font-size: 27px; font-weight: 700; } .h2 { font-size: 22px; font-weight: 700; }
+      .label { font-size: 18px; font-weight: 600; } .small { font-size: 15px; }
+      .tiny { font-size: 13px; } .muted { fill: #647086; } .white { fill: #fff; }
+      .box { stroke-width: 2; }
+      .line { fill: none; stroke: #607087; stroke-width: 3; marker-end: url(#arrow); }
+      .vline { fill: none; stroke: #3478D4; stroke-width: 3; marker-end: url(#arrow-v); }
+      .aline { fill: none; stroke: #E27B31; stroke-width: 3; marker-end: url(#arrow-a); }
+      .cline { fill: none; stroke: #7657C4; stroke-width: 3; marker-end: url(#arrow-c); }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 Z" fill="#607087"/></marker>
+    <marker id="arrow-v" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 Z" fill="#3478D4"/></marker>
+    <marker id="arrow-a" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 Z" fill="#E27B31"/></marker>
+    <marker id="arrow-c" markerWidth="10" markerHeight="10" refX="8" refY="3.5" orient="auto"><path d="M0 0 L8 3.5 L0 7 Z" fill="#7657C4"/></marker>
+  </defs>
+  <rect width="1800" height="760" fill="#fff"/>
+
+  <text x="55" y="52" class="h1">Inputs &amp; Memory</text>
+  <text x="540" y="52" class="h1">Tokenization</text>
+  <text x="860" y="52" class="h1">Unified AV Transformer</text>
+  <text x="1518" y="52" class="h1">Joint Output</text>
+  <line x1="55" y1="67" x2="450" y2="67" stroke="#DCE2EB" stroke-width="2"/>
+  <line x1="540" y1="67" x2="760" y2="67" stroke="#DCE2EB" stroke-width="2"/>
+  <line x1="860" y1="67" x2="1405" y2="67" stroke="#DCE2EB" stroke-width="2"/>
+  <line x1="1518" y1="67" x2="1745" y2="67" stroke="#DCE2EB" stroke-width="2"/>
+
+  <rect x="55" y="112" width="400" height="220" rx="20" fill="#F7FAFF" stroke="#A9C7ED" class="box"/>
+  <circle cx="84" cy="147" r="9" fill="#3478D4"/><text x="104" y="154" class="h2">Visual history &amp; target</text>
+  <rect x="78" y="181" width="76" height="78" rx="10" fill="#DCEBFF" stroke="#3478D4" class="box"/>
+  <text x="116" y="213" text-anchor="middle" class="label">Anchor</text><text x="116" y="239" text-anchor="middle" class="tiny muted">first frame</text>
+  <rect x="161" y="181" width="92" height="78" rx="10" fill="#DCEBFF" stroke="#3478D4" class="box"/>
+  <text x="207" y="213" text-anchor="middle" class="label">Memory</text><text x="207" y="239" text-anchor="middle" class="tiny muted">FOV retrieved</text>
+  <rect x="260" y="181" width="82" height="78" rx="10" fill="#EDF5FF" stroke="#6B9DDE" class="box"/>
+  <text x="301" y="213" text-anchor="middle" class="label">Recent</text><text x="301" y="239" text-anchor="middle" class="tiny muted">context</text>
+  <rect x="349" y="181" width="82" height="78" rx="10" fill="#3478D4" stroke="#245CA8" class="box"/>
+  <text x="390" y="213" text-anchor="middle" class="label white">Target</text><text x="390" y="239" text-anchor="middle" class="tiny white">noisy</text>
+  <text x="255" y="300" text-anchor="middle" class="small muted">geometric memory + local continuity</text>
+
+  <rect x="55" y="363" width="400" height="156" rx="20" fill="#FFF9F4" stroke="#F0BF99" class="box"/>
+  <circle cx="84" cy="398" r="9" fill="#E27B31"/><text x="104" y="405" class="h2">Audio history &amp; target</text>
+  <rect x="98" y="430" width="154" height="62" rx="10" fill="#FFF0E5" stroke="#E6A170" class="box"/>
+  <text x="175" y="457" text-anchor="middle" class="label">Recent context</text><text x="175" y="479" text-anchor="middle" class="tiny muted">temporally adjacent</text>
+  <rect x="260" y="430" width="154" height="62" rx="10" fill="#E27B31" stroke="#B85D1E" class="box"/>
+  <text x="337" y="457" text-anchor="middle" class="label white">Target audio</text><text x="337" y="479" text-anchor="middle" class="tiny white">duration aligned</text>
+
+  <rect x="55" y="550" width="400" height="132" rx="20" fill="#F7F3FF" stroke="#AE9ADB" class="box"/>
+  <text x="77" y="583" class="h2">Interactive conditions</text>
+  <rect x="78" y="602" width="177" height="54" rx="9" fill="#EEE7FF" stroke="#7657C4" class="box"/>
+  <text x="166" y="625" text-anchor="middle" class="label">Camera K, E</text><text x="166" y="645" text-anchor="middle" class="tiny muted">dense Plücker rays</text>
+  <rect x="263" y="602" width="169" height="54" rx="9" fill="#EEE7FF" stroke="#7657C4" class="box"/>
+  <text x="347" y="625" text-anchor="middle" class="label">Actions u</text><text x="347" y="645" text-anchor="middle" class="tiny muted">target conditioning</text>
+
+  <path d="M455 220 L525 220" class="vline"/><path d="M455 445 L525 445" class="aline"/>
+  <rect x="525" y="166" width="235" height="108" rx="18" fill="#EAF3FF" stroke="#3478D4" class="box"/>
+  <text x="642" y="207" text-anchor="middle" class="h2">Video tokenizer</text><text x="642" y="237" text-anchor="middle" class="small muted">video VAE + 3D patches</text>
+  <rect x="525" y="391" width="235" height="108" rx="18" fill="#FFF0E5" stroke="#E27B31" class="box"/>
+  <text x="642" y="432" text-anchor="middle" class="h2">Audio tokenizer</text><text x="642" y="462" text-anchor="middle" class="small muted">audio VAE + 1D projection</text>
+  <rect x="525" y="550" width="235" height="86" rx="18" fill="#F4F5F8" stroke="#9AA6B8" class="box"/>
+  <text x="642" y="583" text-anchor="middle" class="h2">Text encoder</text><text x="642" y="611" text-anchor="middle" class="small muted">prompt + reference frame</text>
+
+  <path d="M760 220 L837 220" class="vline"/><path d="M760 445 L837 445" class="aline"/>
+  <path d="M760 593 L810 593 L810 530 L837 530" class="line"/>
+  <path d="M455 616 L790 616 L790 300 L837 300" class="cline"/>
+
+  <rect x="837" y="112" width="570" height="570" rx="24" fill="#F7F5F2" stroke="#66748A" stroke-width="2.5"/>
+  <text x="1122" y="153" text-anchor="middle" class="h2">Native Audio–Visual DiT</text>
+  <rect x="874" y="180" width="496" height="61" rx="12" fill="#E5F0FF" stroke="#7CA5DF" class="box"/>
+  <text x="899" y="217" class="label">Visual tokens</text><text x="1345" y="217" text-anchor="end" class="small muted">3D RoPE</text>
+  <rect x="874" y="258" width="496" height="61" rx="12" fill="#FFF0E5" stroke="#E5A06D" class="box"/>
+  <text x="899" y="295" class="label">Audio tokens</text><text x="1345" y="295" text-anchor="end" class="small muted">1D RoPE</text>
+
+  <rect x="897" y="353" width="450" height="248" rx="20" fill="#FFFFFF" stroke="#8C98AA" stroke-width="2.5"/>
+  <rect x="919" y="371" width="406" height="48" rx="10" fill="#EEE7FF" stroke="#7657C4" class="box"/><text x="1122" y="402" text-anchor="middle" class="label">Video control modulation</text>
+  <rect x="919" y="433" width="406" height="66" rx="10" fill="#283752" stroke="#172033" class="box"/>
+  <text x="1122" y="462" text-anchor="middle" class="h2 white">Joint self-attention</text><text x="1122" y="487" text-anchor="middle" class="small white">[video Q,K,V ; audio Q,K,V]</text>
+  <rect x="919" y="513" width="406" height="66" rx="10" fill="#F3F5F8" stroke="#9AA6B8" class="box"/>
+  <text x="1122" y="541" text-anchor="middle" class="label">Text cross-attention</text><text x="1122" y="566" text-anchor="middle" class="small muted">modality-specific FFN + modulation</text>
+  <text x="1370" y="482" text-anchor="middle" class="h2">× L</text>
+  <path d="M1122 241 L1122 353" class="vline"/><path d="M1260 319 L1260 353" class="aline"/>
+  <text x="1122" y="655" text-anchor="middle" class="small muted">visual control, cross-modal generation</text>
+
+  <path d="M1407 230 L1455 230" class="vline"/><path d="M1407 455 L1455 455" class="aline"/>
+  <rect x="1455" y="177" width="130" height="106" rx="18" fill="#EAF3FF" stroke="#3478D4" class="box"/>
+  <text x="1520" y="218" text-anchor="middle" class="h2">Video</text><text x="1520" y="247" text-anchor="middle" class="small muted">output head</text>
+  <rect x="1455" y="402" width="130" height="106" rx="18" fill="#FFF0E5" stroke="#E27B31" class="box"/>
+  <text x="1520" y="443" text-anchor="middle" class="h2">Audio</text><text x="1520" y="472" text-anchor="middle" class="small muted">output head</text>
+  <path d="M1585 230 L1620 230" class="vline"/><path d="M1585 455 L1620 455" class="aline"/>
+  <rect x="1620" y="137" width="125" height="408" rx="22" fill="#F7F8FB" stroke="#8794A8" stroke-width="2.5"/>
+  <text x="1682" y="174" text-anchor="middle" class="h2">AV block</text>
+  <rect x="1643" y="200" width="79" height="164" rx="10" fill="#DCEBFF" stroke="#3478D4" class="box"/>
+  <path d="M1653 340 L1710 340 L1710 220 L1653 220 Z" fill="#BCD7FB" stroke="#3478D4" stroke-width="2"/><path d="M1660 323 L1703 323 L1703 239 L1660 239 Z" fill="#8EB9F2" opacity=".85"/>
+  <text x="1682" y="388" text-anchor="middle" class="small muted">video frames</text>
+  <path d="M1643 455 C1652 431,1662 479,1672 455 S1692 431,1702 455 S1722 479,1722 455" fill="none" stroke="#E27B31" stroke-width="4"/>
+  <text x="1682" y="500" text-anchor="middle" class="small muted">stereo audio</text><text x="1682" y="524" text-anchor="middle" class="tiny muted">duration aligned</text>
+</svg>

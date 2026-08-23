@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Vorch-WM is a unified audio-visual world model that jointly simulates evolving environments in sight and sound.">
+  <meta name="theme-color" content="#101516">
+  <title>Vorch-WM — Orchestrating Sight and Sound for Interactive World Models</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-nav">
+    <a class="brand" href="#top" aria-label="Vorch-WM home">Vorch<span>—WM</span></a>
+    <nav aria-label="Page sections">
+      <a href="#abstract">Abstract</a>
+      <a href="#framework">Framework</a>
+      <a href="#showcase">Showcase</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top" aria-labelledby="paper-title">
+      <div class="hero-media" aria-hidden="true">
+        <img src="assets/hero-collage.jpg" alt="">
+      </div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="eyebrow">Interactive audio-visual world modeling</p>
+        <h1 id="paper-title"><span>Vorch-WM</span> Orchestrating Sight and Sound<br>for Interactive World Models</h1>
+        <p class="hero-deck">A unified world model that lets environments be both seen and heard.</p>
+        <p class="authors">
+          Xin Ma<sup>1,*</sup>, Yaole Wang<sup>1,*</sup>, Siqi Wang<sup>1</sup>, Haojie Zhang<sup>2</sup>, Siqian Yang<sup>1</sup>,<br>
+          Xiaoxue Wu<sup>3</sup>, Xinyuan Chen<sup>3</sup>, Lin Ma<sup>†</sup>, Yaohui Wang<sup>1,†</sup>
+        </p>
+        <p class="affiliations"><sup>1</sup>Vorch Team · <sup>2</sup>South China University of Technology · <sup>3</sup>Shanghai AI Laboratory<br><span><sup>*</sup>Equal contribution &nbsp; <sup>†</sup>Corresponding authors</span></p>
+        <div class="hero-links">
+          <a href="#abstract" class="pill">Read the abstract</a>
+          <a href="#framework" class="pill pill-ghost">Explore the method</a>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#abstract" aria-label="Scroll to abstract"><span></span></a>
+    </section>
+
+    <section class="paper-section abstract-section" id="abstract">
+      <div class="section-kicker">01 / Abstract</div>
+      <div class="abstract-grid">
+        <h2>Worlds should<br><em>sound</em> alive.</h2>
+        <div class="abstract-copy">
+          <p class="lead">Interactive world models can synthesize controllable visual observations, yet their generated worlds are predominantly silent.</p>
+          <p>We present <strong>Vorch-WM</strong>, an interactive audio-visual world model that natively co-generates duration-aligned video and stereo audio under camera and action control. A unified generative backbone models both modalities through joint self-attention, allowing visual events and environmental sounds to evolve together rather than attaching audio in post-processing.</p>
+          <p>Dense Plücker ray embeddings provide camera control, while discrete navigation actions enter token-wise temporal conditioning. For long-horizon rollout, Vorch-WM combines a persistent visual anchor, camera-field-of-view retrieval, recent visual context, and temporally aligned acoustic history. Shared training and inference windows, target-only denoising, and error-aware history perturbation stabilize autoregressive continuation.</p>
+          <div class="contribution-row" aria-label="Key capabilities">
+            <div><strong>Native AV</strong><span>joint video and stereo audio</span></div>
+            <div><strong>Controllable</strong><span>camera and action conditioning</span></div>
+            <div><strong>Long horizon</strong><span>modality-aware memory</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="paper-section framework-section" id="framework">
+      <div class="section-kicker">02 / Framework</div>
+      <div class="section-heading">
+        <h2>One process.<br>Two senses.</h2>
+        <p>Visual history is selected geometrically, while audio preserves temporal continuity. Both streams meet inside a native audio-visual Transformer.</p>
+      </div>
+      <figure class="architecture-card">
+        <img src="assets/architecture.svg" alt="Vorch-WM architecture: visual and audio history are tokenized, controlled by camera and actions, processed by a unified audio-visual Transformer, and decoded into aligned video and audio.">
+        <figcaption>Vorch-WM architecture. Camera rays and actions control the visual stream; joint attention propagates scene dynamics across video and audio.</figcaption>
+      </figure>
+    </section>
+
+    <section class="paper-section showcase-section" id="showcase">
+      <div class="section-kicker">03 / Showcase</div>
+      <div class="section-heading showcase-heading">
+        <h2>See the world.<br>Hear it respond.</h2>
+        <p>Coherent audiovisual world simulation across natural, architectural, fantasy, and science-fiction environments. Turn on sound for the full experience.</p>
+      </div>
+
+      <div class="showcase-grid">
+        <article class="media-card">
+          <video controls playsinline preload="none" poster="assets/posters/youtube_sample_0018_controls.jpg">
+            <source src="assets/web/youtube_sample_0018_controls.av1.webm" type="video/webm">
+            <source src="assets/web/youtube_sample_0018_controls.h264.mp4" type="video/mp4">
+          </video>
+          <div class="media-meta"><div><span class="index">01</span><h3>The Portal Library</h3></div><p>Swirling papers, magical illumination, and a deep portal resonance.</p></div>
+        </article>
+        <article class="media-card">
+          <video controls playsinline preload="none" poster="assets/posters/youtube_sample_0006_controls.jpg">
+            <source src="assets/web/youtube_sample_0006_controls.av1.webm" type="video/webm">
+            <source src="assets/web/youtube_sample_0006_controls.h264.mp4" type="video/mp4">
+          </video>
+          <div class="media-meta"><div><span class="index">02</span><h3>Submerged Temple</h3></div><p>Ancient ruins, suspended silt, bubbles, and a distant aquatic rumble.</p></div>
+        </article>
+        <article class="media-card">
+          <video controls playsinline preload="none" poster="assets/posters/youtube_sample_0009_controls.jpg">
+            <source src="assets/web/youtube_sample_0009_controls.av1.webm" type="video/webm">
+            <source src="assets/web/youtube_sample_0009_controls.h264.mp4" type="video/mp4">
+          </video>
+          <div class="media-meta"><div><span class="index">03</span><h3>River Canyon</h3></div><p>Turbulent white water and wind reverberating between towering cliffs.</p></div>
+        </article>
+        <article class="media-card">
+          <video controls playsinline preload="none" poster="assets/posters/youtube_sample_0014_controls.jpg">
+            <source src="assets/web/youtube_sample_0014_controls.av1.webm" type="video/webm">
+            <source src="assets/web/youtube_sample_0014_controls.h264.mp4" type="video/mp4">
+          </video>
+          <div class="media-meta"><div><span class="index">04</span><h3>Mountain Cabin</h3></div><p>Warm firelight, a snowy doorway, crackling embers, and cold wind.</p></div>
+        </article>
+        <article class="media-card">
+          <video controls playsinline preload="none" poster="assets/posters/youtube_sample_0039_controls.jpg">
+            <source src="assets/web/youtube_sample_0039_controls.av1.webm" type="video/webm">
+            <source src="assets/web/youtube_sample_0039_controls.h264.mp4" type="video/mp4">
+          </video>
+          <div class="media-meta"><div><span class="index">05</span><h3>Door on the Ice</h3></div><p>Snow, trembling pines, and low creaks resonating through a frozen lake.</p></div>
+        </article>
+        <article class="media-card">
+          <video controls playsinline preload="none" poster="assets/posters/youtube_sample_0019_controls.jpg">
+            <source src="assets/web/youtube_sample_0019_controls.av1.webm" type="video/webm">
+            <source src="assets/web/youtube_sample_0019_controls.h264.mp4" type="video/mp4">
+          </video>
+          <div class="media-meta"><div><span class="index">06</span><h3>Abandoned Laboratory</h3></div><p>Flickering lights, ceiling drips, ventilation hum, and curling mist.</p></div>
+        </article>
+        <article class="media-card">
+          <video controls playsinline preload="none" poster="assets/posters/youtube_sample_0035_controls.jpg">
+            <source src="assets/web/youtube_sample_0035_controls.av1.webm" type="video/webm">
+            <source src="assets/web/youtube_sample_0035_controls.h264.mp4" type="video/mp4">
+          </video>
+          <div class="media-meta"><div><span class="index">07</span><h3>Alien Wetlands</h3></div><p>Bioluminescent flora, drifting fog, rippling water, and electronic pulses.</p></div>
+        </article>
+        <article class="media-card">
+          <video controls playsinline preload="none" poster="assets/posters/youtube_sample_0007_controls.jpg">
+            <source src="assets/web/youtube_sample_0007_controls.av1.webm" type="video/webm">
+            <source src="assets/web/youtube_sample_0007_controls.h264.mp4" type="video/mp4">
+          </video>
+          <div class="media-meta"><div><span class="index">08</span><h3>Rainforest Compass</h3></div><p>Misty ruins with dripping water, foliage, insects, and distant birds.</p></div>
+        </article>
+        <article class="media-card">
+          <video controls playsinline preload="none" poster="assets/posters/youtube_sample_0026_controls.jpg">
+            <source src="assets/web/youtube_sample_0026_controls.av1.webm" type="video/webm">
+            <source src="assets/web/youtube_sample_0026_controls.h264.mp4" type="video/mp4">
+          </video>
+          <div class="media-meta"><div><span class="index">09</span><h3>Miniature Mansion</h3></div><p>A toy-scale world of dusty floorboards, paper rustle, and tiny taps.</p></div>
+        </article>
+        <article class="media-card">
+          <video controls playsinline preload="none" poster="assets/posters/youtube_sample_0028_controls.jpg">
+            <source src="assets/web/youtube_sample_0028_controls.av1.webm" type="video/webm">
+            <source src="assets/web/youtube_sample_0028_controls.h264.mp4" type="video/mp4">
+          </video>
+          <div class="media-meta"><div><span class="index">10</span><h3>Ancient Gateway</h3></div><p>Cliffside wind, moving leaves, distant birds, and a pulsing portal.</p></div>
+        </article>
+        <article class="media-card">
+          <video controls playsinline preload="none" poster="assets/posters/youtube_sample_0015_controls.jpg">
+            <source src="assets/web/youtube_sample_0015_controls.av1.webm" type="video/webm">
+            <source src="assets/web/youtube_sample_0015_controls.h264.mp4" type="video/mp4">
+          </video>
+          <div class="media-meta"><div><span class="index">11</span><h3>Tracks in the Mist</h3></div><p>Rain-filled footprints, drifting fog, wet foliage, and sparse birdsong.</p></div>
+        </article>
+        <article class="media-card">
+          <video controls playsinline preload="none" poster="assets/posters/youtube_sample_0051_controls.jpg">
+            <source src="assets/web/youtube_sample_0051_controls.av1.webm" type="video/webm">
+            <source src="assets/web/youtube_sample_0051_controls.h264.mp4" type="video/mp4">
+          </video>
+          <div class="media-meta"><div><span class="index">12</span><h3>Tropical Trace</h3></div><p>Sunrise reflections, ocean surf, wind through palms, and seabird calls.</p></div>
+        </article>
+        <article class="media-card">
+          <video controls playsinline preload="none" poster="assets/posters/self_sample_0027_controls.jpg">
+            <source src="assets/web/self_sample_0027_controls.av1.webm" type="video/webm">
+            <source src="assets/web/self_sample_0027_controls.h264.mp4" type="video/mp4">
+          </video>
+          <div class="media-meta"><div><span class="index">13</span><h3>Alpine Village</h3></div><p>A grounded real-world scene with birdsong, footsteps, and distant life.</p></div>
+        </article>
+        <article class="media-card">
+          <video controls playsinline preload="none" poster="assets/posters/self_sample_0018_controls.jpg">
+            <source src="assets/web/self_sample_0018_controls.av1.webm" type="video/webm">
+            <source src="assets/web/self_sample_0018_controls.h264.mp4" type="video/mp4">
+          </video>
+          <div class="media-meta"><div><span class="index">14</span><h3>Sunlit Park Path</h3></div><p>Dappled sunlight, continuous birdsong, footsteps, and rustling leaves.</p></div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#top">Vorch<span>—WM</span></a>
+    <p>Orchestrating sight and sound for interactive world models.</p>
+    <a href="#top" class="back-top">Back to top ↑</a>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
